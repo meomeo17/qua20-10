@@ -1,98 +1,421 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quà 20/10 của Đình Hiệp</title>
-<style>
-  body {
-    font-family: 'Comic Sans MS', cursive;
-    background-color: #ffe4ec;
-    text-align: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-    position: relative;
-  }
-  h1 {
-    color: #d63384;
-    margin-top: 80px;
-  }
-  #buttons {
-    margin-top: 30px;
-    position: relative;
-  }
-  button {
-    font-size: 22px;
-    padding: 10px 25px;
-    margin: 30px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  #yes {
-    background-color: #ff69b4;
-    color: white;
-    position: absolute;
-    left: 35%;
-    top: 55%;
-  }
-  #no {
-    background-color: #ffb6c1;
-    color: white;
-  }
-  #message {
-    margin-top: 40px;
-    font-size: 26px;
-    color: #d63384;
-    display: none;
-    padding: 0 15px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Món quà 20/10 từ Đình Hiệp 💝</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: "Segoe UI", cursive, sans-serif;
+      background: linear-gradient(135deg,
+        #ffe1ef, #ffd3e5, #fce7ff, #ffc8df);
+      background-size: 400% 400%;
+      animation: gradient 12s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #c42f71;
+    }
+
+    @keyframes gradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -40px;
+      pointer-events: none;
+      z-index: 1;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0);
+        opacity: .9;
+      }
+      to {
+        transform: translateY(-115vh) rotate(35deg);
+        opacity: 0;
+      }
+    }
+
+    .card {
+      width: min(90%, 440px);
+      padding: 42px 24px;
+      background: rgba(255,255,255,.78);
+      border: 2px solid rgba(255,255,255,.9);
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(219,53,118,.18);
+      text-align: center;
+      z-index: 2;
+      backdrop-filter: blur(12px);
+      animation: appear .8s ease;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gift {
+      font-size: 76px;
+      display: inline-block;
+      animation: wiggle 2s infinite;
+      cursor: default;
+    }
+
+    @keyframes wiggle {
+      0%, 80%, 100% { transform: rotate(0); }
+      85% { transform: rotate(-12deg); }
+      90% { transform: rotate(12deg); }
+      95% { transform: rotate(-6deg); }
+    }
+
+    h1 {
+      font-size: clamp(23px, 5vw, 32px);
+      line-height: 1.4;
+      margin: 18px 0;
+      color: #d63384;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #986078;
+      line-height: 1.7;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 34px;
+      min-height: 65px;
+    }
+
+    button {
+      border: none;
+      padding: 15px 27px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 7px 18px rgba(219,53,118,.2);
+      transition: background .2s, transform .2s;
+      touch-action: manipulation;
+    }
+
+    #yes {
+      background: #ff66a3;
+      color: white;
+      z-index: 5;
+    }
+
+    #no {
+      background: white;
+      color: #d63384;
+      border: 2px solid #ff9fc7;
+    }
+
+    #no:hover {
+      background: #ffe0ef;
+      transform: scale(1.08);
+    }
+
+    .hint {
+      font-size: 13px;
+      margin-top: 28px;
+      color: #b17891;
+      font-style: italic;
+    }
+
+    .hidden { display: none !important; }
+
+    .open-gift {
+      font-size: 85px;
+      animation: pop 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes pop {
+      from { transform: scale(.9); }
+      to { transform: scale(1.13); }
+    }
+
+    .letter {
+      background: #fff4f9;
+      border: 2px dashed #f5a1c3;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 22px 0;
+      line-height: 1.9;
+      font-size: 17px;
+      color: #9e426b;
+    }
+
+    .signature {
+      font-weight: bold;
+      color: #d63384;
+      margin-top: 14px;
+    }
+
+    .again {
+      background: #ff66a3;
+      color: white;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    .burst {
+      position: fixed;
+      z-index: 10;
+      pointer-events: none;
+      font-size: 25px;
+      animation: explode 1.6s ease-out forwards;
+    }
+
+    @keyframes explode {
+      from {
+        transform: translate(0,0) scale(.5);
+        opacity: 1;
+      }
+      to {
+        transform: translate(var(--x),var(--y))
+                   rotate(360deg) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 34px 18px; }
+      button { padding: 14px 20px; font-size: 16px; }
+      .buttons { gap: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <main class="card" id="question">
+    <div class="gift">🎁</div>
 
-<h1>Bạn có muốn nhận quà 20/10 của mình không? 💝</h1>
+    <h1>Happy Women's Day! 💗</h1>
 
-<div id="buttons">
-  <button id="yes">Có 💖</button>
-  <button id="no">Không 😜</button>
-</div>
+    <p class="subtitle">
+      Hôm nay là ngày 20/10... 🌷<br>
+      Đình Hiệp có một món quà nho nhỏ dành cho bạn!
+    </p>
 
-<p id="message">Chúc bạn 20/10 thật xinh đẹp, hạnh phúc và luôn được yêu thương hehe 💐💗</p>
+    <h1>Bạn có muốn nhận quà không? 🥹</h1>
 
-<script>
-  const yesBtn = document.getElementById('yes');
-  const noBtn = document.getElementById('no');
-  const msg = document.getElementById('message');
+    <div class="buttons">
+      <button id="yes">Có chứ 💖</button>
+      <button id="no">Không nha 😜</button>
+    </div>
 
-  // Khi nhấn "Không" => hiện câu chúc
-  noBtn.addEventListener('click', () => {
-    msg.style.display = 'block';
-  });
+    <p class="hint" id="hint">
+      P/s: Không phải món quà nào cũng dễ nhận đâu 🤭
+    </p>
+  </main>
 
-  // Khi chạm hoặc di vào "Có" => di chuyển trong khung hình
-  function moveButton() {
-    const btnWidth = yesBtn.offsetWidth;
-    const btnHeight = yesBtn.offsetHeight;
+  <main class="card hidden" id="surprise">
+    <div class="open-gift">💐</div>
 
-    // Giới hạn để không bị trôi ra ngoài
-    const screenWidth = window.innerWidth - btnWidth - 20;
-    const screenHeight = window.innerHeight - btnHeight - 100; // chừa phần tiêu đề
+    <h1>Bất ngờ chưa! 💝</h1>
 
-    const randomX = Math.random() * screenWidth;
-    const randomY = Math.random() * screenHeight + 80;
+    <p class="subtitle">
+      Dù bạn chọn "Không"...<br>
+      thì vẫn phải nhận lời chúc này nhé! 😝
+    </p>
 
-    yesBtn.style.left = `${randomX}px`;
-    yesBtn.style.top = `${randomY}px`;
-  }
+    <div class="letter">
+      🌷 Chúc bạn một ngày 20/10 thật đặc biệt!
 
-  yesBtn.addEventListener('mouseenter', moveButton); // cho máy tính
-  yesBtn.addEventListener('touchstart', moveButton); // cho điện thoại
-</script>
+      <p>
+        Mong rằng mỗi ngày của bạn đều
+        ngập tràn niềm vui, luôn xinh đẹp,
+        tự tin và rạng rỡ như những đóa hoa. 🌸
+      </p>
 
+      <p>
+        Chúc bạn luôn được yêu thương,
+        gặp thật nhiều may mắn và
+        có thật nhiều lý do để mỉm cười. 💗
+      </p>
+
+      <p>
+        Cảm ơn vì đã xuất hiện
+        và làm thế giới này đáng yêu hơn! ✨
+      </p>
+
+      <div class="signature">
+        Gửi tặng bạn, từ Đình Hiệp 💌
+      </div>
+    </div>
+
+    <button class="again" id="again">
+      Xem lại bất ngờ 💞
+    </button>
+  </main>
+
+  <script>
+    const yes = document.getElementById("yes");
+    const no = document.getElementById("no");
+    const hint = document.getElementById("hint");
+    const question = document.getElementById("question");
+    const surprise = document.getElementById("surprise");
+    const again = document.getElementById("again");
+
+    let escapeCount = 0;
+    let lastMove = 0;
+
+    const funnyTexts = [
+      "Ơ kìa, bắt được không? 🤭",
+      "Hihi, nhanh tay lên nào! 😝",
+      "Suýt nữa thì bắt được rồi! 😂",
+      "Hay thử nút Không xem sao? 💗",
+      "Đình Hiệp đã tính trước rồi nha! 😎"
+    ];
+
+    function moveYes() {
+      const now = Date.now();
+      if (now - lastMove < 250) return;
+      lastMove = now;
+
+      const rect = yes.getBoundingClientRect();
+      const padding = 15;
+
+      const maxX = Math.max(
+        padding, innerWidth - rect.width - padding
+      );
+      const maxY = Math.max(
+        padding, innerHeight - rect.height - padding
+      );
+
+      let x, y;
+
+      // Tìm vị trí mới cách xa vị trí cũ
+      for (let i = 0; i < 20; i++) {
+        x = padding + Math.random() * (maxX - padding);
+        y = padding + Math.random() * (maxY - padding);
+
+        if (Math.hypot(
+          x - rect.left, y - rect.top
+        ) > 130) break;
+      }
+
+      // Dùng fixed để không bị lệch vị trí
+      yes.style.position = "fixed";
+      yes.style.left = x + "px";
+      yes.style.top = y + "px";
+      yes.style.margin = "0";
+
+      hint.textContent =
+        funnyTexts[escapeCount % funnyTexts.length];
+
+      escapeCount++;
+    }
+
+    // Trên máy tính
+    yes.addEventListener("mouseenter", moveYes);
+
+    // Trên điện thoại
+    yes.addEventListener("touchstart", function(e) {
+      e.preventDefault();
+      moveYes();
+    }, { passive: false });
+
+    // Phòng trường hợp vẫn bấm trúng
+    yes.addEventListener("click", function(e) {
+      e.preventDefault();
+      moveYes();
+    });
+
+    // Tạo trái tim bay
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+
+      const icons = ["💗", "💕", "💖", "🌸", "✨"];
+      heart.textContent =
+        icons[Math.floor(Math.random() * icons.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize =
+        14 + Math.random() * 22 + "px";
+      heart.style.animationDuration =
+        4 + Math.random() * 4 + "s";
+
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8500);
+    }
+
+    const heartTimer = setInterval(createHeart, 550);
+
+    // Pháo hoa trái tim
+    function fireworks() {
+      const symbols = ["💖", "💗", "💝", "🌸", "✨", "🎉"];
+
+      for (let i = 0; i < 75; i++) {
+        const piece = document.createElement("div");
+        piece.className = "burst";
+        piece.textContent =
+          symbols[Math.floor(Math.random() * symbols.length)];
+
+        piece.style.left = "50vw";
+        piece.style.top = "45vh";
+        piece.style.setProperty(
+          "--x", (Math.random() - .5) * innerWidth + "px"
+        );
+        piece.style.setProperty(
+          "--y", (Math.random() - .5) * innerHeight + "px"
+        );
+
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 1700);
+      }
+    }
+
+    // Nút Không: mở món quà
+    no.addEventListener("click", () => {
+      question.classList.add("hidden");
+      surprise.classList.remove("hidden");
+
+      // Ẩn nút Có đang chạy
+      yes.style.display = "none";
+
+      fireworks();
+    });
+
+    // Chơi lại
+    again.addEventListener("click", () => {
+      surprise.classList.add("hidden");
+      question.classList.remove("hidden");
+
+      yes.style.display = "";
+      yes.style.position = "";
+      yes.style.left = "";
+      yes.style.top = "";
+      yes.style.margin = "";
+
+      escapeCount = 0;
+      hint.textContent =
+        "P/s: Không phải món quà nào cũng dễ nhận đâu 🤭";
+    });
+  </script>
 </body>
 </html>
-
-
