@@ -2,420 +2,601 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Món quà 20/10 từ Đình Hiệp 💝</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Món quà 20/10 từ Đình Hiệp 💝</title>
 
-  <style>
-    * { box-sizing: border-box; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-    body {
-      margin: 0;
-      min-height: 100dvh;
-      font-family: "Segoe UI", cursive, sans-serif;
-      background: linear-gradient(135deg,
-        #ffe1ef, #ffd3e5, #fce7ff, #ffc8df);
-      background-size: 400% 400%;
-      animation: gradient 12s ease infinite;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      color: #c42f71;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    @keyframes gradient {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
 
-    .heart {
-      position: fixed;
-      bottom: -40px;
-      pointer-events: none;
-      z-index: 1;
-      animation: floatUp linear forwards;
-    }
+body {
+  min-height: 100dvh;
+  font-family: "Mali", cursive;
+  font-style: italic;
+  background: linear-gradient(
+    135deg,
+    #ffe1ef,
+    #ffd3e5,
+    #fce7ff,
+    #ffc8df
+  );
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  color: #c42f71;
+  padding: 16px;
+}
 
-    @keyframes floatUp {
-      from {
-        transform: translateY(0) rotate(0);
-        opacity: .9;
-      }
-      to {
-        transform: translateY(-115vh) rotate(35deg);
-        opacity: 0;
-      }
-    }
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
 
-    .card {
-      width: min(90%, 440px);
-      padding: 42px 24px;
-      background: rgba(255,255,255,.78);
-      border: 2px solid rgba(255,255,255,.9);
-      border-radius: 30px;
-      box-shadow: 0 20px 60px rgba(219,53,118,.18);
-      text-align: center;
-      z-index: 2;
-      backdrop-filter: blur(12px);
-      animation: appear .8s ease;
-    }
+/* Trái tim bay */
+.heart {
+  position: fixed;
+  bottom: -40px;
+  pointer-events: none;
+  z-index: 1;
+  animation: floatUp linear forwards;
+}
 
-    @keyframes appear {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes floatUp {
+  from {
+    transform: translateY(0) rotate(0);
+    opacity: .9;
+  }
+  to {
+    transform: translateY(-115vh) rotate(35deg);
+    opacity: 0;
+  }
+}
 
-    .gift {
-      font-size: 76px;
-      display: inline-block;
-      animation: wiggle 2s infinite;
-      cursor: default;
-    }
+/* Khung chính */
+.card {
+  width: min(100%, 440px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: 42px 24px;
+  background: rgba(255,255,255,.83);
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(219,53,118,.18);
+  text-align: center;
+  z-index: 2;
+  backdrop-filter: blur(12px);
+  animation: appear .8s ease;
+}
 
-    @keyframes wiggle {
-      0%, 80%, 100% { transform: rotate(0); }
-      85% { transform: rotate(-12deg); }
-      90% { transform: rotate(12deg); }
-      95% { transform: rotate(-6deg); }
-    }
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    h1 {
-      font-size: clamp(23px, 5vw, 32px);
-      line-height: 1.4;
-      margin: 18px 0;
-      color: #d63384;
-    }
+/* Hộp quà */
+.gift {
+  font-size: 76px;
+  display: inline-block;
+  animation: wiggle 2s infinite;
+}
 
-    .subtitle {
-      font-size: 16px;
-      color: #986078;
-      line-height: 1.7;
-    }
+@keyframes wiggle {
+  0%, 80%, 100% {
+    transform: rotate(0);
+  }
+  85% {
+    transform: rotate(-12deg);
+  }
+  90% {
+    transform: rotate(12deg);
+  }
+  95% {
+    transform: rotate(-6deg);
+  }
+}
 
-    .buttons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      margin-top: 34px;
-      min-height: 65px;
-    }
+/* Chữ */
+h1 {
+  font-family: "Mali", cursive;
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(23px, 5vw, 32px);
+  line-height: 1.5;
+  margin: 18px 0;
+  color: #d63384;
+}
 
-    button {
-      border: none;
-      padding: 15px 27px;
-      border-radius: 50px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      font-family: inherit;
-      box-shadow: 0 7px 18px rgba(219,53,118,.2);
-      transition: background .2s, transform .2s;
-      touch-action: manipulation;
-    }
+.subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #986078;
+  line-height: 1.8;
+}
 
-    #yes {
-      background: #ff66a3;
-      color: white;
-      z-index: 5;
-    }
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 34px;
+  min-height: 65px;
+}
 
-    #no {
-      background: white;
-      color: #d63384;
-      border: 2px solid #ff9fc7;
-    }
+button {
+  font-family: "Mali", cursive;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 15px 27px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 7px 18px rgba(219,53,118,.2);
+  touch-action: manipulation;
+}
 
-    #no:hover {
-      background: #ffe0ef;
-      transform: scale(1.08);
-    }
+/* Nút Có */
+#yes {
+  background: #ff66a3;
+  color: white;
+  z-index: 20;
+}
 
-    .hint {
-      font-size: 13px;
-      margin-top: 28px;
-      color: #b17891;
-      font-style: italic;
-    }
+/* Nút Không */
+#no {
+  background: white;
+  color: #d63384;
+  border: 2px solid #ff9fc7;
+  transition: transform .2s, background .2s;
+}
 
-    .hidden { display: none !important; }
+#no:hover {
+  background: #ffe0ef;
+  transform: scale(1.08);
+}
 
-    .open-gift {
-      font-size: 85px;
-      animation: pop 1s ease-in-out infinite alternate;
-    }
+/* Thu hút nút Không */
+#no.attention {
+  animation: attention 1s infinite;
+  background: #ff4f9b;
+  color: white;
+  border-color: #ff4f9b;
+}
 
-    @keyframes pop {
-      from { transform: scale(.9); }
-      to { transform: scale(1.13); }
-    }
+@keyframes attention {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px #ff79b5;
+  }
+  50% {
+    transform: scale(1.12);
+    box-shadow: 0 0 26px #ff479b;
+  }
+}
 
-    .letter {
-      background: #fff4f9;
-      border: 2px dashed #f5a1c3;
-      border-radius: 20px;
-      padding: 20px;
-      margin: 22px 0;
-      line-height: 1.9;
-      font-size: 17px;
-      color: #9e426b;
-    }
+.hint {
+  font-size: 14px;
+  margin-top: 28px;
+  color: #b17891;
+  min-height: 45px;
+  line-height: 1.8;
+}
 
-    .signature {
-      font-weight: bold;
-      color: #d63384;
-      margin-top: 14px;
-    }
+.hidden {
+  display: none !important;
+}
 
-    .again {
-      background: #ff66a3;
-      color: white;
-      font-size: 15px;
-      margin-top: 10px;
-    }
+.open-gift {
+  font-size: 85px;
+  animation: pop 1s ease-in-out infinite alternate;
+}
 
-    .burst {
-      position: fixed;
-      z-index: 10;
-      pointer-events: none;
-      font-size: 25px;
-      animation: explode 1.6s ease-out forwards;
-    }
+@keyframes pop {
+  from {
+    transform: scale(.9);
+  }
+  to {
+    transform: scale(1.13);
+  }
+}
 
-    @keyframes explode {
-      from {
-        transform: translate(0,0) scale(.5);
-        opacity: 1;
-      }
-      to {
-        transform: translate(var(--x),var(--y))
-                   rotate(360deg) scale(1.4);
-        opacity: 0;
-      }
-    }
+.letter {
+  background: #fff4f9;
+  border: 2px dashed #f5a1c3;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 22px 0;
+  line-height: 1.9;
+  font-size: 17px;
+  color: #9e426b;
+}
 
-    @media (max-width: 480px) {
-      .card { padding: 34px 18px; }
-      button { padding: 14px 20px; font-size: 16px; }
-      .buttons { gap: 12px; }
-    }
+.signature {
+  font-weight: 700;
+  color: #d63384;
+  margin-top: 14px;
+}
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-      }
-    }
-  </style>
+.again {
+  background: #ff66a3;
+  color: white;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* Pháo hoa */
+.burst {
+  position: fixed;
+  z-index: 30;
+  pointer-events: none;
+  font-size: 25px;
+  animation: explode 1.6s ease-out forwards;
+}
+
+@keyframes explode {
+  from {
+    transform: translate(0,0) scale(.5);
+    opacity: 1;
+  }
+  to {
+    transform:
+      translate(var(--x), var(--y))
+      rotate(360deg)
+      scale(1.4);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 34px 18px;
+  }
+
+  button {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+
+  .buttons {
+    gap: 12px;
+  }
+
+  .letter {
+    font-size: 15px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <main class="card" id="question">
-    <div class="gift">🎁</div>
 
-    <h1>Happy Women's Day! 💗</h1>
+<!-- MÀN HÌNH ĐẦU -->
+<main class="card" id="question">
 
-    <p class="subtitle">
-      Hôm nay là ngày 20/10... 🌷<br>
-      Đình Hiệp có một món quà nho nhỏ dành cho bạn!
+  <div class="gift">🎁</div>
+
+  <h1>Happy Women's Day! 💗</h1>
+
+  <p class="subtitle">
+    Hôm nay là ngày 20/10... 🌷<br>
+    Đình Hiệp có một món quà nho nhỏ
+    dành cho bạn!
+  </p>
+
+  <h1>Bạn có muốn nhận quà không? 🥹</h1>
+
+  <div class="buttons">
+    <button id="yes">Có chứ 💖</button>
+    <button id="no">Không nha 😜</button>
+  </div>
+
+  <p class="hint" id="hint">
+    P/s: Không phải món quà nào
+    cũng dễ nhận đâu 🤭
+  </p>
+
+</main>
+
+<!-- MÀN HÌNH LỜI CHÚC -->
+<main class="card hidden" id="surprise">
+
+  <div class="open-gift">💐</div>
+
+  <h1>Bất ngờ chưa! 💝</h1>
+
+  <p class="subtitle">
+    Dù bạn chọn "Không"...<br>
+    thì vẫn phải nhận lời chúc này nhé! 😝
+  </p>
+
+  <div class="letter">
+
+    🌷 Chúc bạn một ngày 20/10 thật đặc biệt!
+
+    <p>
+      Mong rằng mỗi ngày của bạn đều
+      ngập tràn niềm vui, luôn xinh đẹp,
+      tự tin và rạng rỡ như những đóa hoa. 🌸
     </p>
 
-    <h1>Bạn có muốn nhận quà không? 🥹</h1>
+    <p>
+      Chúc bạn luôn được yêu thương,
+      gặp thật nhiều may mắn và
+      có thật nhiều lý do để mỉm cười. 💗
+    </p>
 
-    <div class="buttons">
-      <button id="yes">Có chứ 💖</button>
-      <button id="no">Không nha 😜</button>
+    <p>
+      Cảm ơn vì đã xuất hiện
+      và làm thế giới này đáng yêu hơn! ✨
+    </p>
+
+    <div class="signature">
+      Gửi tặng bạn, từ Đình Hiệp 💌
     </div>
 
-    <p class="hint" id="hint">
-      P/s: Không phải món quà nào cũng dễ nhận đâu 🤭
-    </p>
-  </main>
+  </div>
 
-  <main class="card hidden" id="surprise">
-    <div class="open-gift">💐</div>
+  <button class="again" id="again">
+    Xem lại bất ngờ 💞
+  </button>
 
-    <h1>Bất ngờ chưa! 💝</h1>
+</main>
 
-    <p class="subtitle">
-      Dù bạn chọn "Không"...<br>
-      thì vẫn phải nhận lời chúc này nhé! 😝
-    </p>
+<script>
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+const hint = document.getElementById("hint");
+const question = document.getElementById("question");
+const surprise = document.getElementById("surprise");
+const again = document.getElementById("again");
 
-    <div class="letter">
-      🌷 Chúc bạn một ngày 20/10 thật đặc biệt!
+let escapeCount = 0;
+let lastMove = 0;
 
-      <p>
-        Mong rằng mỗi ngày của bạn đều
-        ngập tràn niềm vui, luôn xinh đẹp,
-        tự tin và rạng rỡ như những đóa hoa. 🌸
-      </p>
+/* Những câu trêu vui */
+const funnyTexts = [
+  "Ơ kìa, bắt được không? 🤭",
+  "Hihi, nhanh tay lên nào! 😝",
+  "Suýt nữa thì bắt được rồi! 😂",
+  "Vẫn chưa bắt được à? 🤣",
+  "Hay thử nút Không xem sao? 💗",
+  "Đuổi mỏi tay chưa? 😂",
+  "Nút Không đang chờ bạn đó! 🎁",
+  "Bấm Không đi, có bất ngờ đấy! 💐"
+];
 
-      <p>
-        Chúc bạn luôn được yêu thương,
-        gặp thật nhiều may mắn và
-        có thật nhiều lý do để mỉm cười. 💗
-      </p>
+/*
+  QUAN TRỌNG:
+  Đưa nút Có ra ngoài khung card.
+  Như vậy position: fixed được tính
+  theo màn hình, không bị ảnh hưởng
+  bởi backdrop-filter của card.
+*/
+function detachYes() {
+  if (yes.parentElement !== document.body) {
+    const rect = yes.getBoundingClientRect();
 
-      <p>
-        Cảm ơn vì đã xuất hiện
-        và làm thế giới này đáng yêu hơn! ✨
-      </p>
+    document.body.appendChild(yes);
 
-      <div class="signature">
-        Gửi tặng bạn, từ Đình Hiệp 💌
-      </div>
-    </div>
+    yes.style.position = "fixed";
+    yes.style.left = rect.left + "px";
+    yes.style.top = rect.top + "px";
+    yes.style.margin = "0";
+  }
+}
 
-    <button class="again" id="again">
-      Xem lại bất ngờ 💞
-    </button>
-  </main>
+/* Di chuyển nút Có */
+function moveYes() {
+  const now = Date.now();
 
-  <script>
-    const yes = document.getElementById("yes");
-    const no = document.getElementById("no");
-    const hint = document.getElementById("hint");
-    const question = document.getElementById("question");
-    const surprise = document.getElementById("surprise");
-    const again = document.getElementById("again");
+  if (now - lastMove < 120) return;
+  lastMove = now;
 
-    let escapeCount = 0;
-    let lastMove = 0;
+  detachYes();
 
-    const funnyTexts = [
-      "Ơ kìa, bắt được không? 🤭",
-      "Hihi, nhanh tay lên nào! 😝",
-      "Suýt nữa thì bắt được rồi! 😂",
-      "Hay thử nút Không xem sao? 💗",
-      "Đình Hiệp đã tính trước rồi nha! 😎"
-    ];
+  const width = yes.offsetWidth;
+  const height = yes.offsetHeight;
+  const padding = 12;
 
-    function moveYes() {
-      const now = Date.now();
-      if (now - lastMove < 250) return;
-      lastMove = now;
+  const maxX = Math.max(
+    padding,
+    window.innerWidth - width - padding
+  );
 
-      const rect = yes.getBoundingClientRect();
-      const padding = 15;
+  const maxY = Math.max(
+    padding,
+    window.innerHeight - height - padding
+  );
 
-      const maxX = Math.max(
-        padding, innerWidth - rect.width - padding
-      );
-      const maxY = Math.max(
-        padding, innerHeight - rect.height - padding
-      );
+  const oldRect = yes.getBoundingClientRect();
 
-      let x, y;
+  let x = padding;
+  let y = padding;
 
-      // Tìm vị trí mới cách xa vị trí cũ
-      for (let i = 0; i < 20; i++) {
-        x = padding + Math.random() * (maxX - padding);
-        y = padding + Math.random() * (maxY - padding);
+  for (let i = 0; i < 35; i++) {
+    const candidateX = padding +
+      Math.random() * Math.max(0, maxX - padding);
 
-        if (Math.hypot(
-          x - rect.left, y - rect.top
-        ) > 130) break;
-      }
+    const candidateY = padding +
+      Math.random() * Math.max(0, maxY - padding);
 
-      // Dùng fixed để không bị lệch vị trí
-      yes.style.position = "fixed";
-      yes.style.left = x + "px";
-      yes.style.top = y + "px";
-      yes.style.margin = "0";
+    x = candidateX;
+    y = candidateY;
 
-      hint.textContent =
-        funnyTexts[escapeCount % funnyTexts.length];
-
-      escapeCount++;
+    if (Math.hypot(
+      x - oldRect.left,
+      y - oldRect.top
+    ) > 150) {
+      break;
     }
+  }
 
-    // Trên máy tính
-    yes.addEventListener("mouseenter", moveYes);
+  yes.style.left = x + "px";
+  yes.style.top = y + "px";
 
-    // Trên điện thoại
-    yes.addEventListener("touchstart", function(e) {
-      e.preventDefault();
-      moveYes();
-    }, { passive: false });
+  hint.textContent =
+    funnyTexts[escapeCount % funnyTexts.length];
 
-    // Phòng trường hợp vẫn bấm trúng
-    yes.addEventListener("click", function(e) {
-      e.preventDefault();
-      moveYes();
-    });
+  escapeCount++;
 
-    // Tạo trái tim bay
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.className = "heart";
+  if (escapeCount >= 5) {
+    no.classList.add("attention");
 
-      const icons = ["💗", "💕", "💖", "🌸", "✨"];
-      heart.textContent =
-        icons[Math.floor(Math.random() * icons.length)];
+    hint.textContent =
+      "Đuổi mỏi tay chưa? Bấm KHÔNG là có quà đó! 🎁😂";
+  }
+}
 
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize =
-        14 + Math.random() * 22 + "px";
-      heart.style.animationDuration =
-        4 + Math.random() * 4 + "s";
+/* Máy tính */
+yes.addEventListener("mouseenter", moveYes);
 
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 8500);
-    }
+/* Điện thoại */
+yes.addEventListener("touchstart", function(e) {
+  e.preventDefault();
+  moveYes();
+}, { passive: false });
 
-    const heartTimer = setInterval(createHeart, 550);
+/* Nếu bấm trúng nút */
+yes.addEventListener("click", function(e) {
+  e.preventDefault();
+  moveYes();
+});
 
-    // Pháo hoa trái tim
-    function fireworks() {
-      const symbols = ["💖", "💗", "💝", "🌸", "✨", "🎉"];
+/* Giữ nút trong màn hình khi đổi kích thước */
+window.addEventListener("resize", () => {
+  if (yes.parentElement !== document.body) return;
 
-      for (let i = 0; i < 75; i++) {
-        const piece = document.createElement("div");
-        piece.className = "burst";
-        piece.textContent =
-          symbols[Math.floor(Math.random() * symbols.length)];
+  const rect = yes.getBoundingClientRect();
 
-        piece.style.left = "50vw";
-        piece.style.top = "45vh";
-        piece.style.setProperty(
-          "--x", (Math.random() - .5) * innerWidth + "px"
-        );
-        piece.style.setProperty(
-          "--y", (Math.random() - .5) * innerHeight + "px"
-        );
+  const x = Math.max(10, Math.min(
+    rect.left,
+    innerWidth - yes.offsetWidth - 10
+  ));
 
-        document.body.appendChild(piece);
-        setTimeout(() => piece.remove(), 1700);
-      }
-    }
+  const y = Math.max(10, Math.min(
+    rect.top,
+    innerHeight - yes.offsetHeight - 10
+  ));
 
-    // Nút Không: mở món quà
-    no.addEventListener("click", () => {
-      question.classList.add("hidden");
-      surprise.classList.remove("hidden");
+  yes.style.left = x + "px";
+  yes.style.top = y + "px";
+});
 
-      // Ẩn nút Có đang chạy
-      yes.style.display = "none";
+/* Trái tim bay liên tục */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
 
-      fireworks();
-    });
+  const icons = ["💗","💕","💖","🌸","✨"];
 
-    // Chơi lại
-    again.addEventListener("click", () => {
-      surprise.classList.add("hidden");
-      question.classList.remove("hidden");
+  heart.textContent =
+    icons[Math.floor(Math.random() * icons.length)];
 
-      yes.style.display = "";
-      yes.style.position = "";
-      yes.style.left = "";
-      yes.style.top = "";
-      yes.style.margin = "";
+  heart.style.left =
+    Math.random() * 100 + "vw";
 
-      escapeCount = 0;
-      hint.textContent =
-        "P/s: Không phải món quà nào cũng dễ nhận đâu 🤭";
-    });
-  </script>
+  heart.style.fontSize =
+    14 + Math.random() * 22 + "px";
+
+  heart.style.animationDuration =
+    4 + Math.random() * 4 + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 8500);
+}
+
+setInterval(createHeart, 550);
+
+/* Pháo hoa khi mở quà */
+function fireworks() {
+  const symbols = ["💖","💗","💝","🌸","✨","🎉"];
+
+  for (let i = 0; i < 75; i++) {
+    const piece = document.createElement("div");
+    piece.className = "burst";
+
+    piece.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    piece.style.left = "50vw";
+    piece.style.top = "45vh";
+
+    piece.style.setProperty(
+      "--x",
+      (Math.random() - .5) * innerWidth + "px"
+    );
+
+    piece.style.setProperty(
+      "--y",
+      (Math.random() - .5) * innerHeight + "px"
+    );
+
+    document.body.appendChild(piece);
+
+    setTimeout(() => piece.remove(), 1700);
+  }
+}
+
+/* Nút Không mở quà */
+no.addEventListener("click", () => {
+  question.classList.add("hidden");
+  surprise.classList.remove("hidden");
+
+  yes.style.display = "none";
+
+  fireworks();
+});
+
+/* Chơi lại */
+again.addEventListener("click", () => {
+  surprise.classList.add("hidden");
+  question.classList.remove("hidden");
+
+  const buttons = question.querySelector(".buttons");
+
+  buttons.insertBefore(yes, no);
+
+  yes.style.display = "";
+  yes.style.position = "";
+  yes.style.left = "";
+  yes.style.top = "";
+  yes.style.margin = "";
+
+  no.classList.remove("attention");
+
+  escapeCount = 0;
+  lastMove = 0;
+
+  hint.textContent =
+    "P/s: Không phải món quà nào cũng dễ nhận đâu 🤭";
+});
+</script>
+
 </body>
 </html>
